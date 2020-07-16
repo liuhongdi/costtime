@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Component
 @Aspect
-@Order(2)
+@Order(1)
 public class LogAspect {
 
     @Pointcut("execution(public * com.costtime.demo.controller.*.*(..))")
@@ -50,13 +50,13 @@ public class LogAspect {
         }
 
         // 记录下请求内容
-        System.out.println("URL : " + request.getRequestURL().toString());
-        System.out.println("PARAM : " +  request.getQueryString());
-        System.out.println("HTTP_METHOD : " + request.getMethod());
-        System.out.println("IP : " + request.getRemoteAddr());
-        System.out.println("METHOD CLASS : " + joinPoint.getSignature().getDeclaringTypeName() );
-        System.out.println("METHOD NAME: " + joinPoint.getSignature().getName());
-        System.out.println("METHOD ARGS : " + paramValue);
+        System.out.println("log aop URL : " + request.getRequestURL().toString());
+        System.out.println("log aop PARAM : " +  request.getQueryString());
+        System.out.println("log aop HTTP_METHOD : " + request.getMethod());
+        System.out.println("log aop IP : " + request.getRemoteAddr());
+        System.out.println("log aop METHOD CLASS : " + joinPoint.getSignature().getDeclaringTypeName() );
+        System.out.println("log aop METHOD NAME: " + joinPoint.getSignature().getName());
+        System.out.println("log aop METHOD ARGS : " + paramValue);
     }
 
     @AfterReturning(returning = "ret" , pointcut = "pointcut()")
