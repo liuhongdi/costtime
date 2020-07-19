@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Component
-@Order(1)
+//@Order(1)
 //@WebFilter(urlPatterns = {"/home/*","/config/*"}, filterName = "securityRequestFilter")
 public class TimeFilter implements Filter {
     @Override
@@ -33,4 +33,5 @@ public class TimeFilter implements Filter {
     public void destroy() {
         System.out.println("----------------time filter destroy");
     }
+
 }
