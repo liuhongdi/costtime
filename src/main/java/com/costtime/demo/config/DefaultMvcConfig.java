@@ -58,10 +58,9 @@ public class DefaultMvcConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/html/*","/js/*");
 
         registry.addInterceptor(logInterceptor)
-                .addPathPatterns("/home/home**")
-                .excludePathPatterns("/html/*","/js/*");
-
-
+                //.addPathPatterns("/home/home**")
+                .addPathPatterns("/**")
+                .excludePathPatterns("/html/*","/static/**","/images/**");
     }
 
     //add filter

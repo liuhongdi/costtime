@@ -18,6 +18,7 @@ public class LogInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("---------------log interceptor preHandle ");
 
+        //logRequest(request);
         //打印request参数
         Enumeration<?> temp = request.getParameterNames();
         if (null != temp) {
@@ -40,5 +41,13 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         System.out.println("---------------log interceptor afterCompletion ");
+    }
+
+    //打印request的信息
+    private void logRequest(HttpServletRequest request) {
+        System.out.println("log filter URL : " + request.getRequestURL().toString());
+        System.out.println("log filter PARAM : " +  request.getQueryString());
+        System.out.println("log filter HTTP_METHOD : " + request.getMethod());
+        System.out.println("log filter IP : " + request.getRemoteAddr());
     }
 }
